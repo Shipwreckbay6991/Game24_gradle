@@ -4,26 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ed85a1ba-6f10-49d0-9271-850a0947cb57" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gradlew" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gradlew.bat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/settings.gradle" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/game24/Combination.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/game24/CombinationProducer.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/game24/Main.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/game24/Node.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/game24/Operator.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/game24/Rational.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/game24/CombinationProducerTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/game24/RationalTest.java" afterDir="false" />
+    <list default="true" id="ed85a1ba-6f10-49d0-9271-850a0947cb57" name="Changes" comment="Initial commit">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/game24/CombinationProducer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game24/CombinationProducer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/game24/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game24/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/game24/CombinationProducerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/game24/CombinationProducerTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -69,18 +54,18 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit5",
-    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5": "",
-    "last_opened_file_path": "/Users/linpingxiang/Desktop/Game24_Producer/Game24_gradle",
-    "project.structure.last.edited": "Modules",
-    "project.structure.proportion": "0.0",
-    "project.structure.side.proportion": "0.0"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary&quot;: &quot;JUnit5&quot;,
+    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5&quot;: &quot;&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/linpingxiang/Desktop/Game24_Producer/Game24_gradle&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CreateTestDialog.Recents.Supers">
       <recent name="" />
@@ -89,7 +74,7 @@
       <recent name="game24" />
     </key>
   </component>
-  <component name="RunManager" selected="Gradle.CombinationProducerTest.validate">
+  <component name="RunManager" selected="Gradle.CombinationProducerTest.produceCombinations">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="game24.Main" />
       <module name="Game24_gradle.main" />
@@ -197,10 +182,10 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Gradle.CombinationProducerTest.produceCombinations" />
         <item itemvalue="Gradle.CombinationProducerTest.validate" />
         <item itemvalue="Gradle.CombinationProducerTest.parseSolution" />
         <item itemvalue="Application.Main" />
-        <item itemvalue="Gradle.CombinationProducerTest.produceCombinations" />
         <item itemvalue="Gradle.CombinationProducerTest" />
       </list>
     </recent_temporary>
@@ -214,6 +199,14 @@
       <option name="presentableId" value="Default" />
       <updated>1710112605903</updated>
     </task>
+    <task id="LOCAL-00001" summary="Initial commit">
+      <created>1710121802168</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1710121802168</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -226,5 +219,9 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Initial commit" />
+    <option name="LAST_COMMIT_MESSAGE" value="Initial commit" />
   </component>
 </project>

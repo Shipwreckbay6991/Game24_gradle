@@ -5,13 +5,11 @@ import org.junit.jupiter.api.Test;
 import java.util.List;
 import java.util.Stack;
 
-import static org.junit.jupiter.api.Assertions.*;
-
 class CombinationProducerTest {
 
     @Test
     void produceCombinations() {
-        List<Combination> combinations = CombinationProducer.produceCombinations();
+        List<Combination> combinations = CombinationProducer.produceCombinations(1,3);
         for(Combination comb: combinations){
             for(Node node: comb.nodes)
                 System.out.print(node.result.getNumerator() + "/" + node.result.getDenominator() + " ");
@@ -20,19 +18,14 @@ class CombinationProducerTest {
     }
 
     @Test
-    void filterAndSave() {
-    }
-
-    @Test
     void validate() {
-        List<Combination> combinations = CombinationProducer.produceCombinations();
+        List<Combination> combinations = CombinationProducer.produceCombinations(1,3);
         CombinationProducer.validate(combinations);
         for(Combination comb: combinations){
             for(Node node: comb.nodes)
                 System.out.print(node.result.getNumerator() + "/" + node.result.getDenominator() + " ");
             System.out.print(comb.valid + " " + comb.solutionExpr +"\n");
         }
-
     }
 
     @Test

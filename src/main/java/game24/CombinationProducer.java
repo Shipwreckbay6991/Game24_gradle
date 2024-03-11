@@ -6,43 +6,21 @@ import java.util.Stack;
 
 public class CombinationProducer {
 
-    private static int biggestNumber = 13;
-
-    public static int getBiggestNumber() {
-        return biggestNumber;
-    }
-
-    public static void setBiggestNumber(int biggestNumber) {
-        CombinationProducer.biggestNumber = biggestNumber;
-    }
-
     /**
-     * @return a list all possible 4-number-combinations. Numbers in each combination are ranked in ascending order to avoid duplicates
+     * produce sorted sequences as unique combinations (same numbers can occur in the same combination, order doesn't matter)
+     * @param smallestNumber smallest number in combination
+     * @param biggestNumber biggest number in combination
+     * @return a list of all possible number combinations
      */
-    public static List<Combination> produceCombinations(){
+    public static List<Combination> produceCombinations(int smallestNumber, int biggestNumber){
         List<Combination> combinations = new ArrayList<>();
-        for(int n1 = 1; n1 <= biggestNumber; n1++){
-            for(int n2 = 1; n2 <= biggestNumber; n2++){
-                for(int n3 = 1; n3 <= biggestNumber; n3++){
-                    for(int n4 = 1; n4 <= biggestNumber; n4++){
-                        //logic to reduce loop cycles
-                        if(n1 > n2){
-                            n2++;
-                            n3 = n2;
-                            n4 = n2 - 1;
-                        }
-                        else if(n2 > n3){
-                            n3++;
-                            n4 = n3 - 1;
-                        }
-                        else if(n3 > n4){
-                            continue;
-                        }
-                        else{ // add qualified ones into result list
-                            Node[] nodes = new Node[]{new Node(n1), new Node(n2), new Node(n3), new Node(n4)};
-                            Combination comb = new Combination(nodes);
-                            combinations.add(comb);
-                        }
+        for(int n1 = smallestNumber; n1 <= biggestNumber; n1++){
+            for(int n2 = n1; n2 <= biggestNumber; n2++){
+                for(int n3 = n2; n3 <= biggestNumber; n3++){
+                    for(int n4 = n3; n4 <= biggestNumber; n4++){
+                        Node[] nodes = new Node[]{new Node(n1), new Node(n2), new Node(n3), new Node(n4)};
+                        Combination comb = new Combination(nodes);
+                        combinations.add(comb);
                     }
                 }
             }
@@ -50,45 +28,13 @@ public class CombinationProducer {
         return combinations;
     }
 
-    public static void filterAndSave(List<Combination> combinations){
-        //TODO save combination and computation path in a json file
-
-        //filter the invalid ones
-        List<Combination> validCombinations = combinations.stream()
-                .filter(c -> c.valid)
-                .toList();
-
-        //save
-
-
-    }
-
     /**
-     * parse the computation path in a node as string
-     * @param solution A node that contains computation path
-     * @param operators operators from precedent nodes, corresponding to operations happened later than expression of current node
-     * @return A string shows the complete computation path
+     * @param combinations all combinations
+     * @return only valid combinations that has a solution to 24
      */
-    public static String parseSolution(Node solution, Stack<Operator> operators){
-        if(solution.operator == null)
-            return String.valueOf(solution.result.toInt());
-        String operator = switch (solution.operator) {
-            case ADD -> "+";
-            case SUB -> "-";
-            case MUL -> "*";
-            case DIV -> "/";
-            default -> throw new RuntimeException("Not gonna happen!");
-        };
-        operators.push(solution.operator);
-        String expr1 = parseSolution(solution.operand1, operators);
-        String expr2 = parseSolution(solution.operand2, operators);
-        if(!expr1.matches("-?\\d+"))
-            expr1 = "("+expr1+")";
-        if(!expr2.matches("-?\\d+"))
-            expr2 = "("+expr2+")";
-        return expr1 +" "+ operator + " " + expr2;
+    public static List<Combination> filter(List<Combination> combinations){
+        return combinations.stream().filter(c -> c.valid).toList();
     }
-
 
 
     /**
@@ -97,7 +43,7 @@ public class CombinationProducer {
      */
     public static void validate(List<Combination> combinations){
         for(Combination comb: combinations){
-            List<Node[]> mergedCombinations = mergeNodes(comb, comb.nodes, 4);
+            List<Node[]> mergedCombinations = mergeNodes(comb.nodes, 4);
             validateHelper(comb, mergedCombinations, 3);
         }
     }
@@ -128,7 +74,7 @@ public class CombinationProducer {
         for(Node[] combination: combinations){
             if(originalComb.valid)
                 return;
-            List<Node[]> mergedCombinations = mergeNodes(originalComb, combination, length);
+            List<Node[]> mergedCombinations = mergeNodes(combination, length);
             validateHelper(originalComb, mergedCombinations, length-1);
         }
     }
@@ -136,12 +82,11 @@ public class CombinationProducer {
 
     /**
      * merge each pair of numbers in a given combination in all possible way to make a new number node, which will form new combination with other unmerged nodes
-     * @param originalComb original combination, from which the given combinations originate, passed down for potential field updating
      * @param currentComb current combination that we work on
      * @param length length of current combination
      * @return a list of all possible merged combinations, length of each combination equals given length - 1
      */
-    private static List<Node[]> mergeNodes(Combination originalComb, Node[] currentComb, int length){
+    private static List<Node[]> mergeNodes(Node[] currentComb, int length){
         List<Node[]> mergedCombinations = new ArrayList<>();
         for(int i = 0; i < length - 1; i++){
             for(int j = i+1; j < length; j++){
@@ -195,6 +140,30 @@ public class CombinationProducer {
         };
     }
 
+    /**
+     * parse the computation path in a node as string
+     * @param solution A node that contains computation path
+     * @param operators operators from precedent nodes, corresponding to operations happened later than expression of current node
+     * @return A string shows the complete computation path
+     */
+    public static String parseSolution(Node solution, Stack<Operator> operators){
+        if(solution.operator == null)
+            return String.valueOf(solution.result.toInt());
+        String operator = switch (solution.operator) {
+            case ADD -> "+";
+            case SUB -> "-";
+            case MUL -> "*";
+            case DIV -> "/";
+        };
+        operators.push(solution.operator);
+        String expr1 = parseSolution(solution.operand1, operators);
+        String expr2 = parseSolution(solution.operand2, operators);
+        if(!expr1.matches("-?\\d+"))
+            expr1 = "("+expr1+")";
+        if(!expr2.matches("-?\\d+"))
+            expr2 = "("+expr2+")";
+        return expr1 +" "+ operator + " " + expr2;
+    }
 
 
 }
