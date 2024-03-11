@@ -75,8 +75,7 @@ public class Rational {
 
     @Override
     public boolean equals(Object obj) {
-        if(obj instanceof Rational){
-            Rational r = (Rational)obj;
+        if(obj instanceof Rational r){
             return r.getDenominator() == denominator && r.getNumerator() == numerator;
         }
         return false;

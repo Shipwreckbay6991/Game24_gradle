@@ -4,11 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ed85a1ba-6f10-49d0-9271-850a0947cb57" name="Changes" comment="Initial commit">
+    <list default="true" id="ed85a1ba-6f10-49d0-9271-850a0947cb57" name="Changes" comment="optimize code and verify">
+      <change afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/game24/CombinationProducer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game24/CombinationProducer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/game24/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game24/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/game24/CombinationProducerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/game24/CombinationProducerTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/game24/Node.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game24/Node.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/game24/Rational.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game24/Rational.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -74,7 +74,7 @@
       <recent name="game24" />
     </key>
   </component>
-  <component name="RunManager" selected="Gradle.CombinationProducerTest.produceCombinations">
+  <component name="RunManager" selected="Gradle.CombinationProducerTest.validate">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="game24.Main" />
       <module name="Game24_gradle.main" />
@@ -182,8 +182,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Gradle.CombinationProducerTest.produceCombinations" />
         <item itemvalue="Gradle.CombinationProducerTest.validate" />
+        <item itemvalue="Gradle.CombinationProducerTest.produceCombinations" />
         <item itemvalue="Gradle.CombinationProducerTest.parseSolution" />
         <item itemvalue="Application.Main" />
         <item itemvalue="Gradle.CombinationProducerTest" />
@@ -206,7 +206,14 @@
       <option name="project" value="LOCAL" />
       <updated>1710121802168</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="optimize code and verify">
+      <created>1710181950037</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1710181950037</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -222,6 +229,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Initial commit" />
-    <option name="LAST_COMMIT_MESSAGE" value="Initial commit" />
+    <MESSAGE value="optimize code and verify" />
+    <option name="LAST_COMMIT_MESSAGE" value="optimize code and verify" />
   </component>
 </project>

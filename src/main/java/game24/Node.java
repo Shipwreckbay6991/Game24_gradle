@@ -14,10 +14,6 @@ public class Node {
         this.operator = operator;
     }
 
-    public Node(Rational result) {
-        this.result = result;
-    }
-
     public Node(int result) {
         this.result = new Rational(result, 1);
     }
